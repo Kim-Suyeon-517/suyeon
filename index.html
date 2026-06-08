@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Personal website for Suyeon with profile, selected work, and resume."
+      content="Personal website for Suyeon with profile, projects, activities, and resume."
     />
     <title>Suyeon | Personal Website</title>
     <style>
@@ -94,13 +94,13 @@
       }
 
       h1 {
-        font-size: clamp(3.2rem, 8vw, 5.9rem);
+        font-size: 5.9rem;
         line-height: 0.96;
         margin-bottom: 1.25rem;
       }
 
       h2 {
-        font-size: clamp(2.25rem, 5vw, 3.5rem);
+        font-size: 3.5rem;
         line-height: 1.05;
         margin-bottom: 1rem;
       }
@@ -250,7 +250,7 @@
 
       .lead {
         color: var(--body-strong);
-        font-size: clamp(1.1rem, 2vw, 1.35rem);
+        font-size: 1.35rem;
         max-width: 42rem;
       }
 
@@ -366,6 +366,52 @@
         font-size: 1.05rem;
       }
 
+      .about-panel {
+        background: var(--surface-card);
+        border-radius: 12px;
+        display: grid;
+        gap: 1.5rem;
+        grid-template-columns: minmax(12rem, 0.45fr) minmax(0, 1fr);
+        margin-top: 2rem;
+        padding: 2rem;
+      }
+
+      .about-list {
+        display: grid;
+        gap: 1rem;
+        margin: 0;
+      }
+
+      .about-list div {
+        border-bottom: 1px solid var(--hairline);
+        padding-bottom: 1rem;
+      }
+
+      .about-list div:last-child {
+        border-bottom: 0;
+        padding-bottom: 0;
+      }
+
+      .about-list dt {
+        color: var(--muted);
+        font-size: 0.78rem;
+        font-weight: 500;
+        line-height: 1.4;
+        margin-bottom: 0.25rem;
+      }
+
+      .about-list dd {
+        color: var(--ink);
+        font-weight: 500;
+        margin: 0;
+      }
+
+      .about-intro {
+        color: var(--body-strong);
+        font-size: 1.15rem;
+        margin-bottom: 0;
+      }
+
       .feature-grid {
         display: grid;
         gap: 1rem;
@@ -392,6 +438,16 @@
       .feature-card p {
         color: var(--body);
         margin-bottom: 0;
+      }
+
+      .project-list {
+        color: var(--body);
+        margin: 0;
+        padding-left: 1.1rem;
+      }
+
+      .project-list li + li {
+        margin-top: 0.45rem;
       }
 
       .resume-grid {
@@ -481,7 +537,7 @@
         display: grid;
         gap: 1.5rem;
         grid-template-columns: minmax(0, 1fr) auto;
-        padding: clamp(2rem, 6vw, 4rem);
+        padding: 4rem;
       }
 
       .callout-card h2,
@@ -490,7 +546,7 @@
       }
 
       .callout-card h2 {
-        font-size: clamp(2rem, 4vw, 3rem);
+        font-size: 3rem;
         margin-bottom: 0.75rem;
       }
 
@@ -499,13 +555,43 @@
         max-width: 38rem;
       }
 
+      .contact-card {
+        background: var(--canvas);
+        border-radius: 12px;
+        color: var(--ink);
+        min-width: 20rem;
+        padding: 1.25rem;
+      }
+
+      .contact-card h3 {
+        margin-bottom: 1rem;
+      }
+
       .contact-list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.75rem 1.25rem;
+        display: grid;
+        gap: 0.9rem;
         list-style: none;
-        margin: 1.5rem 0 0;
+        margin: 0;
         padding: 0;
+      }
+
+      .contact-label {
+        color: var(--muted);
+        display: block;
+        font-size: 0.78rem;
+        font-weight: 500;
+        line-height: 1.4;
+        margin-bottom: 0.2rem;
+      }
+
+      .contact-list a {
+        color: var(--ink);
+        font-weight: 500;
+        overflow-wrap: anywhere;
+      }
+
+      .contact-list a:hover {
+        color: var(--primary-active);
       }
 
       .site-footer {
@@ -549,8 +635,21 @@
       }
 
       @media (max-width: 900px) {
+        h1 {
+          font-size: 4.5rem;
+        }
+
+        h2 {
+          font-size: 3rem;
+        }
+
+        .callout-card h2 {
+          font-size: 2.5rem;
+        }
+
         .hero-grid,
         .resume-grid,
+        .about-panel,
         .callout-card,
         .footer-grid {
           grid-template-columns: 1fr;
@@ -566,6 +665,26 @@
       }
 
       @media (max-width: 700px) {
+        h1 {
+          font-size: 3.2rem;
+        }
+
+        h2 {
+          font-size: 2.25rem;
+        }
+
+        .lead {
+          font-size: 1.1rem;
+        }
+
+        .callout-card {
+          padding: 2rem;
+        }
+
+        .callout-card h2 {
+          font-size: 2rem;
+        }
+
         .container {
           width: min(100% - 1.25rem, 1200px);
         }
@@ -599,10 +718,14 @@
 
         .profile-caption,
         .actions,
-        .contact-list,
         .footer-links {
           align-items: stretch;
           flex-direction: column;
+        }
+
+        .contact-card {
+          min-width: 0;
+          width: 100%;
         }
 
         .button {
@@ -621,8 +744,8 @@
           <span>Suyeon</span>
         </a>
         <ul class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#work">Work</a></li>
+          <li><a href="#about">About Me</a></li>
+          <li><a href="#projects">Projects</a></li>
           <li><a href="#resume">Resume</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -636,12 +759,12 @@
             <p class="eyebrow">Personal website</p>
             <h1 id="intro-title">Suyeon</h1>
             <p class="lead">
-              A warm editorial profile for selected work, background, and a
-              downloadable CV.
+              A warm editorial profile for projects, activities, background,
+              and a downloadable CV.
             </p>
             <div class="actions" aria-label="Primary actions">
               <a class="button primary" href="assets/cv.pdf">Download CV</a>
-              <a class="button secondary" href="#work">View Work</a>
+              <a class="button secondary" href="#projects">View Projects</a>
             </div>
           </div>
 
@@ -663,50 +786,71 @@
       <section class="section soft" id="about" aria-labelledby="about-title">
         <div class="container">
           <div class="section-header">
-            <h2 id="about-title">About</h2>
+            <h2 id="about-title">About Me</h2>
             <p>
-              This page keeps Suyeon's profile, resume, and work highlights in
-              one simple static site that can be published directly on GitHub
-              Pages.
+              A short introduction to my academic background and interests.
+            </p>
+          </div>
+          <div class="about-panel">
+            <dl class="about-list">
+              <div>
+                <dt>Name</dt>
+                <dd>Suyeon Kim</dd>
+              </div>
+              <div>
+                <dt>Major</dt>
+                <dd>Sociology (Computer Science &amp; Engineering)</dd>
+              </div>
+            </dl>
+            <p class="about-intro">
+              I'm interested in large language models and AI. I want to see
+              society through the lens of computer science.
             </p>
           </div>
         </div>
       </section>
 
-      <section class="section" id="work" aria-labelledby="work-title">
+      <section class="section" id="projects" aria-labelledby="projects-title">
         <div class="container">
           <div class="section-header">
-            <h2 id="work-title">Selected Work</h2>
+            <h2 id="projects-title">Projects</h2>
             <p>
-              A concise set of areas for presenting experience, projects, and
-              professional focus.
+              Course projects, club activities, personal work, and hobbies that
+              shape how I learn and build.
             </p>
           </div>
 
           <div class="feature-grid" role="list">
             <article class="feature-card" role="listitem">
-              <span class="tag">Profile</span>
-              <h3>Background</h3>
-              <p>
-                Add education, experience, interests, or current focus here as
-                the site grows.
-              </p>
+              <span class="tag">Course</span>
+              <h3>Course Projects</h3>
+              <ul class="project-list">
+                <li>OOP Course Project - C++ class design</li>
+                <li>Java programming assignments</li>
+              </ul>
             </article>
             <article class="feature-card" role="listitem">
-              <span class="tag">Portfolio</span>
-              <h3>Projects</h3>
-              <p>
-                Highlight practical work, research, writing, or selected
-                accomplishments.
-              </p>
+              <span class="tag">Club</span>
+              <h3>Club Activities</h3>
+              <ul class="project-list">
+                <li>Orchestra club</li>
+                <li>Musical club</li>
+              </ul>
             </article>
             <article class="feature-card" role="listitem">
-              <span class="tag">Resume</span>
-              <h3>CV</h3>
-              <p>
-                Share the local PDF resume through GitHub Pages without any
-                backend service.
-              </p>
+              <span class="tag">Personal</span>
+              <h3>Personal Projects</h3>
+              <ul class="project-list">
+                <li>GitHub Pages personal website</li>
+              </ul>
+            </article>
+            <article class="feature-card" role="listitem">
+              <span class="tag">Hobbies</span>
+              <h3>Hobbies</h3>
+              <ul class="project-list">
+                <li>Gaming</li>
+                <li>Exercising</li>
+              </ul>
             </article>
           </div>
         </div>
@@ -741,7 +885,7 @@
                 <span class="code-label">cv.summary</span>
               </div>
               <pre><code><span class="code-key">name</span>: <span class="code-value">Suyeon</span>
-<span class="code-key">focus</span>: profile, projects, resume
+<span class="code-key">focus</span>: profile, projects, activities, resume
 <span class="code-key">format</span>: static GitHub Pages
 <span class="code-key">file</span>: assets/cv.pdf</code></pre>
             </div>
@@ -755,11 +899,33 @@
             <div>
               <h2 id="contact-title">Contact</h2>
               <p>
-                Start with the CV for contact details, then add profile links
-                here when they are ready.
+                Reach out by email or follow my profile links.
               </p>
+              <div class="actions" aria-label="Contact actions">
+                <a class="button on-coral" href="assets/cv.pdf">View CV PDF</a>
+              </div>
             </div>
-            <a class="button on-coral" href="assets/cv.pdf">View CV PDF</a>
+            <div class="contact-card" aria-label="Contact information">
+              <h3>Contact Info</h3>
+              <ul class="contact-list">
+                <li>
+                  <span class="contact-label">Email</span>
+                  <a href="mailto:tndussy04@snu.ac.kr">tndussy04@snu.ac.kr</a>
+                </li>
+                <li>
+                  <span class="contact-label">GitHub</span>
+                  <a href="https://kim-suyeon-517.github.io/suyeon/">
+                    kim-suyeon-517.github.io/suyeon
+                  </a>
+                </li>
+                <li>
+                  <span class="contact-label">Instagram</span>
+                  <a href="https://www.instagram.com/yes._.sey77/">
+                    @yes._.sey77
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
@@ -775,8 +941,8 @@
           <p>&copy; 2026 Suyeon. Built as a static GitHub Pages site.</p>
         </div>
         <ul class="footer-links" aria-label="Footer links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#work">Work</a></li>
+          <li><a href="#about">About Me</a></li>
+          <li><a href="#projects">Projects</a></li>
           <li><a href="assets/cv.pdf">CV</a></li>
         </ul>
       </div>
